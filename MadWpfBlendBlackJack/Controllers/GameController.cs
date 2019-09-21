@@ -8,6 +8,7 @@ using MadWpfBlendBlackJack.Views;
 
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace MadWpfBlendBlackJack.Controllers
 {
@@ -336,12 +337,16 @@ namespace MadWpfBlendBlackJack.Controllers
         /// </summary>
         /// <param name="theHand"></param>
         /// <returns>the list of image names </returns>
-        public List<string> BuildListOfImagesForItemsControl(List<Card>  theHand)
+        public List<BitmapImage> BuildListOfImagesForItemsControl(List<Card>  theHand)
         {
-            List<string> items = new List<string>();
+            // modify to use the bitmap
+
+            //List<string> items = new List<string>();
+            List<BitmapImage> items = new List<BitmapImage>();
             foreach (var cc in theHand)
             {
-                items.Add(cc.image);
+                //items.Add(cc.image);
+                items.Add(cc.cardBitMapImage);
             }
             return items;
         }

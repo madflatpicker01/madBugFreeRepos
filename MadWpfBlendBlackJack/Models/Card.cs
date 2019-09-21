@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace MadWpfBlendBlackJack.Models
 {
@@ -17,5 +18,6 @@ namespace MadWpfBlendBlackJack.Models
         public cardRank rank { get; set; }
         public string image { get; set; }
         public int cardVal { get; set; }  // convert enum val to numeric
+        public BitmapImage  cardBitMapImage { get; set; }
     }
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Runtime.InteropServices;
+using System.Windows.Media.Imaging;
 
 namespace MadWpfBlendBlackJack.Models
 {
@@ -24,11 +26,13 @@ namespace MadWpfBlendBlackJack.Models
         public List<Card> theDeck;
         public List<string> theImagePathNames;
 
+      
         // constructor
         public Deck( )
         {
             //_numberOfDecks = 1;
             theImagePathNames = LoadCardImagesDirectory();
+
             CreateNewDeck();
         }
 
@@ -131,7 +135,17 @@ namespace MadWpfBlendBlackJack.Models
                     retString = "s" + rankStr + ".png";
                     break;
             }
-            return theImagePathNames.Where(x => x.Contains(retString)).FirstOrDefault();
+
+            return @"/Images/Cards/" + retString;
+            //return theImagePathNames.Where(x => x.Contains(retString)).FirstOrDefault();
+          
+        }
+
+        private BitmapImage LoadBitMapImageFromCard(string imgPath)
+        {
+            imgPath = "pack://application:,," + imgPath;
+            Uri resourceUri = new Uri(imgPath, UriKind.Absolute);
+            return new BitmapImage(resourceUri);
         }
 
         private List<Card> LoadSuit( List<Card> curDeck, cardSuit theSuit)
@@ -146,6 +160,7 @@ namespace MadWpfBlendBlackJack.Models
                     suit = theSuit,
                     cardVal = rankVal <= 10 ? rankVal : 10
                 };
+                theCard.cardBitMapImage = LoadBitMapImageFromCard(theCard.image);
                 curDeck.Add(theCard);
             }
             return curDeck;

@@ -3,10 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:properties="clr-namespace:MadWpfBlendBlackJack.Properties"
         xmlns:local="clr-namespace:MadWpfBlendBlackJack"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="869" Width="1124">
+    
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -14,7 +16,10 @@
                 <GradientStop Color="#FF09940A" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Image Source="C:\Users\miche\source\Repos\MadWpfBlendBlackJack\MadWpfBlendBlackJack\Images\black-jack-table.jxr"  />
+
+        <Image Source="{Binding Source={x:Static properties:Resources.black_jack_table}}" />
+
+        <!--<Image Source="C:\Users\miche\source\Repos\MadWpfBlendBlackJack\MadWpfBlendBlackJack\Images\black-jack-table.jxr"  />-->
 
         <ItemsControl x:Name="icDealerImageItems" Margin="247,154,274,560">
             <ItemsControl.ItemsPanel>
