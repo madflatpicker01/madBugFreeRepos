@@ -26,14 +26,22 @@ namespace MadWpfBlendBlackJack.Models
         public List<Card> theDeck;
         public List<string> theImagePathNames;
 
+        public BitmapImage computerCard;
+
       
         // constructor
         public Deck( )
         {
             //_numberOfDecks = 1;
             theImagePathNames = LoadCardImagesDirectory();
-
             CreateNewDeck();
+            computerCard = SetComputerCardImage();
+        }
+
+        private BitmapImage SetComputerCardImage()
+        {
+            string imgPath = @"/Images/Cards/computer.png";
+            return LoadBitMapImageFromCard(imgPath);
         }
 
         private List<string> LoadCardImagesDirectory()

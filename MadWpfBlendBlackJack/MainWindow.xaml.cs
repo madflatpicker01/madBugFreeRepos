@@ -31,6 +31,10 @@ namespace MadWpfBlendBlackJack
             InitializeComponent();
             SetImagesInitial();
             theGame = new GameController();
+
+            txtPlayerCards.Visibility = Visibility.Hidden;           
+            txtDealerCards.Visibility = Visibility.Hidden;         
+            txtDealerScore.Visibility = Visibility.Hidden;
         }
 
 
@@ -118,16 +122,20 @@ namespace MadWpfBlendBlackJack
 
             // deal the initial hand
             theGame.DealTheCards();
-    
+
+            txtPlayerCards.Visibility = Visibility.Hidden;
             txtPlayerCards.Text = theGame.DisplayCardsToUser(theGame.playersHand);
+            txtDealerCards.Visibility = Visibility.Hidden;
             txtDealerCards.Text = theGame.DisplayCardsToUser(theGame.dealerHand);
 
             txtPlayerScore.Text = theGame.DisplayScoresToUser(theGame.playersHand);
+            txtDealerScore.Visibility = Visibility.Hidden;
             txtDealerScore.Text = theGame.DisplayScoresToUser(theGame.dealerHand);
 
-            icPlayerImageItems.ItemsSource = theGame.BuildListOfImagesForItemsControl(theGame.playersHand);
-            icDealerImageItems.ItemsSource = theGame.BuildListOfImagesForItemsControl(theGame.dealerHand);
-
+            icPlayerImageItems.ItemsSource = theGame.BuildListOfImagesForItemsControl(theGame.playersHand, false);
+          
+            icDealerImageItems.ItemsSource = theGame.BuildListOfImagesForItemsControl(theGame.dealerHand, true  );
+           
             txtFinalResults.Visibility = Visibility.Hidden;
             txtFinalResults.Text = theGame.CheckScores();
             if (!string.IsNullOrEmpty(txtFinalResults.Text))
@@ -161,7 +169,7 @@ namespace MadWpfBlendBlackJack
             theGame.GetNextCard(ref theGame.playersHand);  // get the next card for the player
 
 
-            icPlayerImageItems.ItemsSource = theGame.BuildListOfImagesForItemsControl(theGame.playersHand);
+            icPlayerImageItems.ItemsSource = theGame.BuildListOfImagesForItemsControl(theGame.playersHand, false);
             txtPlayerCards.Text = theGame.DisplayCardsToUser(theGame.playersHand);
             txtPlayerScore.Text = theGame.DisplayScoresToUser(theGame.playersHand);
 

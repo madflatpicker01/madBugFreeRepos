@@ -33,6 +33,9 @@ namespace MadWpfBlendBlackJack.Controllers
         public  List<Card> playersHand;
         private Shoe currentShoe;
 
+        private Deck theDeck; 
+        public BitmapImage theComputerCard; 
+
         public GameController()
         {
             playersSelected = false;
@@ -41,6 +44,8 @@ namespace MadWpfBlendBlackJack.Controllers
             playersHand = new List<Card>();
             theDealer = new Player();
             dealerHand = new List<Card>();
+            theDeck = new Deck();
+            theComputerCard = theDeck.computerCard;
         }
 
   
@@ -121,16 +126,22 @@ namespace MadWpfBlendBlackJack.Controllers
                 do
                 {
                     GetNextCard(ref dealerHand);
-                    ((MainWindow)Application.Current.MainWindow).txtDealerCards.Text = DisplayCardsToUser(dealerHand);         
-                    ((MainWindow)Application.Current.MainWindow).icDealerImageItems.ItemsSource = BuildListOfImagesForItemsControl(dealerHand);
-                    resultStr = CheckScores();
-                } while (string.IsNullOrEmpty(resultStr));
+                    ((MainWindow)Application.Current.MainWindow).txtDealerCards.Text = DisplayCardsToUser(dealerHand);
+                    ((MainWindow)Application.Current.MainWindow).icDealerImageItems.ItemsSource = BuildListOfImagesForItemsControl(dealerHand, false);
+                    ((MainWindow)Application.Current.MainWindow).txtDealerScore.Text = DisplayScoresToUser(dealerHand);
+                    ((MainWindow)Application.Current.MainWindow).txtDealerScore.Visibility = Visibility.Visible;
+
+
+                } while (GetScore(dealerHand) < 17);
             }
-            else
-            {
+          
                 resultStr = CheckScores();
-            }
+         
+            ((MainWindow)Application.Current.MainWindow).txtDealerCards.Text = DisplayCardsToUser(dealerHand);
+            ((MainWindow)Application.Current.MainWindow).icDealerImageItems.ItemsSource = BuildListOfImagesForItemsControl(dealerHand, false);
             ((MainWindow)Application.Current.MainWindow).txtDealerScore.Text = DisplayScoresToUser(dealerHand);
+            ((MainWindow)Application.Current.MainWindow).txtDealerScore.Visibility = Visibility.Visible;
+
             handCompleted = true;
             dealAllowed = true; 
             return resultStr;
@@ -176,6 +187,14 @@ namespace MadWpfBlendBlackJack.Controllers
                 handCompleted = true;
                 dealAllowed = true;
                 CalculateStatistics();
+
+                ((MainWindow)Application.Current.MainWindow).txtDealerCards.Text = DisplayCardsToUser(dealerHand);
+                ((MainWindow)Application.Current.MainWindow).icDealerImageItems.ItemsSource = BuildListOfImagesForItemsControl(dealerHand, false);
+                ((MainWindow)Application.Current.MainWindow).txtDealerScore.Text = DisplayScoresToUser(dealerHand);
+                ((MainWindow)Application.Current.MainWindow).txtDealerScore.Visibility = Visibility.Visible;
+
+                handCompleted = true;
+                dealAllowed = true;
                 return "DEALER HAS BLACKJACK AND WINS!";
             }
 
@@ -210,7 +229,7 @@ namespace MadWpfBlendBlackJack.Controllers
                 return "DEALER BUSTED!  PLAYER WINS!";
             }
 
-            if ((standSelected) && (dealersScore > playerScore))
+            if ((standSelected) && ((dealersScore > playerScore) || (dealersScore == 21)))
             {
                 playerWon = false;
                 handCompleted = true;
@@ -337,10 +356,9 @@ namespace MadWpfBlendBlackJack.Controllers
         /// </summary>
         /// <param name="theHand"></param>
         /// <returns>the list of image names </returns>
-        public List<BitmapImage> BuildListOfImagesForItemsControl(List<Card>  theHand)
+        public List<BitmapImage> BuildListOfImagesForItemsControl(List<Card>  theHand, bool IsInitial)
         {
             // modify to use the bitmap
-
             //List<string> items = new List<string>();
             List<BitmapImage> items = new List<BitmapImage>();
             foreach (var cc in theHand)
@@ -348,6 +366,7 @@ namespace MadWpfBlendBlackJack.Controllers
                 //items.Add(cc.image);
                 items.Add(cc.cardBitMapImage);
             }
+            if (IsInitial) items[1] = theComputerCard;
             return items;
         }
     }
