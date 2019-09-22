@@ -8,7 +8,7 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="869" Width="1124">
-    
+
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -21,7 +21,7 @@
 
         <!--<Image Source="C:\Users\miche\source\Repos\MadWpfBlendBlackJack\MadWpfBlendBlackJack\Images\black-jack-table.jxr"  />-->
 
-        <ItemsControl x:Name="icDealerImageItems" Margin="247,154,274,560">
+        <ItemsControl x:Name="icDealerImageItems" Margin="247,194,274,520">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal" />
@@ -34,7 +34,7 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <Button x:Name="btnHit" Content="HIT" Margin="0,0,415.001,75.165" VerticalAlignment="Bottom" Click="BtnHit_Click_1" FontSize="18.667"   Height="35.517" HorizontalAlignment="Right" Width="94.5" >
+        <Button x:Name="btnHit" Content="HIT" Margin="0,0,77.66,279.97" VerticalAlignment="Bottom" Click="BtnHit_Click_1" FontSize="18.667"   Height="35.517" HorizontalAlignment="Right" Width="94.5" >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -43,7 +43,7 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="btnStand" Content="STAND" HorizontalAlignment="Right" Margin="0,0,246.333,75.165" VerticalAlignment="Bottom" Width="103.5" Click="btnStand_Click" FontSize="18.667"  Height="35.517" >
+        <Button x:Name="btnStand" Content="STAND" HorizontalAlignment="Right" Margin="0,0,77.66,216" VerticalAlignment="Bottom" Width="94.5" Click="btnStand_Click" FontSize="18.667"  Height="35.517" >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -52,7 +52,7 @@
             </Button.Background>
         </Button>
 
-        <Button Name="btnNewGame" Content="NEW GAME" HorizontalAlignment="Left" Margin="10.5,0,0,75.165" VerticalAlignment="Bottom" Width="114.168" Click="btnNewGame_Click" FontSize="18.667"  Height="35.517">
+        <Button Name="btnNewGame" Content="NEW GAME" HorizontalAlignment="Left" Margin="42,0,0,279.97" VerticalAlignment="Bottom" Width="114.168" Click="btnNewGame_Click" FontSize="18.667"  Height="35.517">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -60,7 +60,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Name="btnExit" Click="BtnExit_Click" Content="EXIT" Margin="0,0,66,75.165" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="105.5" FontSize="18.667" Height="35.517">
+        <Button Name="btnExit" Click="BtnExit_Click" Content="EXIT" Margin="41.832,0,0,147.816" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="114.168" FontSize="18.667" Height="35.517">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -68,19 +68,20 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Label x:Name="lblPlayerName1" Content="Player Name" HorizontalAlignment="Left" Margin="20,0,0,254" VerticalAlignment="Bottom" FontSize="24" Foreground="#FFF3E6E6" FontStyle="Italic" FontWeight="Bold"/>
-        <TextBox Name="txtDealerCards" Height="23" Margin="246.963,89.345,274,0" TextWrapping="Wrap" Text="Dealer Cards Display" VerticalAlignment="Top"/>
-        <TextBox Name="txtPlayerCards" Height="23" Margin="246.963,0,246.333,160.333" TextWrapping="Wrap" Text="Player Cards Display" VerticalAlignment="Bottom" TextChanged="TxtPlayerCards_TextChanged"/>
-        <TextBox x:Name="txtDealerName" HorizontalAlignment="Left" Height="33.667" Margin="10.5,105.368,0,0" TextWrapping="Wrap" Text="Dealer Name" VerticalAlignment="Top" Width="201.5" FontSize="18.667"/>
-        <TextBox x:Name="txtDealerScore" HorizontalAlignment="Right" Height="24" Margin="0,201,66,0" TextWrapping="Wrap" Text="Dealer Score" VerticalAlignment="Top" Width="120" FontSize="18.667"/>
-        <Label x:Name="lblDealerName" Content="Dealer Name" Margin="10,58.445,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="165.837" FontSize="24" FontWeight="Bold" FontStyle="Italic" Foreground="#FFD4C3C3"/>
-        <TextBox x:Name="txtPlayerScore" Height="32.333" Margin="0,0,72,210.667" TextWrapping="Wrap" Text="Player Score" VerticalAlignment="Bottom" TextChanged="TxtPlayerCards_TextChanged" HorizontalAlignment="Right" Width="120" FontSize="18.667"/>
-        <TextBox x:Name="txtPlayerName" HorizontalAlignment="Left" Height="33" Margin="10,0,0,216" TextWrapping="Wrap" Text="Player Name" VerticalAlignment="Bottom" Width="202" TextChanged="TxtPlayerCards_TextChanged" FontSize="18.667"/>
-        <Label x:Name="lblPlayerScore" Content="Player Score" HorizontalAlignment="Right" Margin="0,542,66,243" FontSize="24" Foreground="#FFF3E6E6"/>
-        <Label x:Name="lblDealerScore" Content="Dealer Score" HorizontalAlignment="Right" Margin="0,154,48,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFF3E6E6"/>
+        <Label x:Name="lblPlayerName1" Content="Player Name" HorizontalAlignment="Left" Margin="42,384.528,0,408" FontSize="26.667" Foreground="#FFF3E6E6" FontStyle="Italic" FontWeight="Bold" d:LayoutOverrides="Height"/>
+        <TextBox Name="txtDealerCards" Height="23" Margin="246.963,89.345,274,0" TextWrapping="Wrap" Text="Dealer Cards Display" VerticalAlignment="Top" Visibility="Hidden"/>
+        <TextBox Name="txtPlayerCards" Height="23" Margin="246.963,0,246.333,160.333" TextWrapping="Wrap" Text="Player Cards Display" VerticalAlignment="Bottom" TextChanged="TxtPlayerCards_TextChanged" Visibility="Hidden"/>
+        <TextBox x:Name="txtDealerName" Height="33.667" Margin="270,117.345,413.5,0" TextWrapping="Wrap" Text="Dealer Name" VerticalAlignment="Top" FontSize="26.667" FontWeight="Bold" FontStyle="Italic" Visibility="Hidden"/>
+        <TextBox x:Name="txtDealerScore" HorizontalAlignment="Right" Height="41.47" Margin="0,117.345,77.66,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58.34" FontSize="26.667" Visibility="Hidden"/>
+        <Label x:Name="lblDealerName" Content="Dealer Name" Margin="41.832,105.542,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="189.837" FontSize="26.667" FontWeight="Bold" FontStyle="Italic" Foreground="#FFD4C3C3"/>
+        <TextBox x:Name="txtPlayerScore" Margin="0,377,77.66,412.305" TextWrapping="Wrap" TextChanged="TxtPlayerCards_TextChanged" HorizontalAlignment="Right" Width="58.34" FontSize="26.667"/>
+        <TextBox x:Name="txtPlayerName" Margin="270,384.528,413.5,404.777" TextWrapping="Wrap" Text="Player Name" TextChanged="TxtPlayerCards_TextChanged" FontSize="26.667" FontWeight="Bold" FontStyle="Italic" Visibility="Hidden" />
+
+        <Label x:Name="lblPlayerScore" Content="Player Score" HorizontalAlignment="Right" Margin="0,377,159.8,408" FontSize="26.667" Foreground="#FFF3E6E6" FontWeight="Bold" FontStyle="Italic" d:LayoutOverrides="VerticalAlignment"/>
+        <Label x:Name="lblDealerScore" Content="Dealer Score" HorizontalAlignment="Right" Margin="0,123.1,157,0" VerticalAlignment="Top" FontSize="26.667" Foreground="#FFF3E6E6" FontWeight="Bold" FontStyle="Italic"/>
 
 
-        <Button x:Name="btnDeal" Content="DEAL" Margin="246.963,0,0,75.165" VerticalAlignment="Bottom" Click="BtnDeal_Click_1" HorizontalAlignment="Left" Width="114" FontSize="18.667" Height="35.517" >
+        <Button x:Name="btnDeal" Content="DEAL" Margin="0,0,77.66,147.816" VerticalAlignment="Bottom" Click="BtnDeal_Click_1" HorizontalAlignment="Right" Width="94.5" FontSize="18.667" Height="35.517" >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -107,7 +108,7 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <Button x:Name="btnDisplayStatistics" Content="STATISTICS" Margin="426,0,0,75" VerticalAlignment="Bottom" Click="btnDisplayStatistics_Click" HorizontalAlignment="Left" Width="114" FontSize="18.667" Height="36" >
+        <Button x:Name="btnDisplayStatistics" Content="STATISTICS" Margin="42,0,0,216" VerticalAlignment="Bottom" Click="btnDisplayStatistics_Click" HorizontalAlignment="Left" Width="114" FontSize="18.667" Height="36" >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>

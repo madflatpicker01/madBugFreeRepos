@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MadWpfBlendBlackJack.Models
 {
@@ -80,9 +81,9 @@ namespace MadWpfBlendBlackJack.Models
             }
             else
             {
+                MessageBox.Show("Time to Shuffle the Cards... one sec", "Shuffling", MessageBoxButton.OK, MessageBoxImage.Information);
                 // time to shuffle 
-                currentShoeList = currentShoe.ToList();
-                currentShoeList = ShuffleShoe(2, currentShoeList);
+                currentShoeList = ShuffleShoe( NumberOfDecks , currentShoeList);
                 currentShoe = new Queue<Card>(currentShoeList);
                 return currentShoe.Dequeue();
             }

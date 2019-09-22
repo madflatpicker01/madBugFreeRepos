@@ -5,16 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MadWpfBlendBlackJack.Views"
         mc:Ignorable="d"
-        Title="StartupInfoWindow" Height="450" Width="738.315">
-    <Grid Margin="0,0,158.764,-10.112">
-        <Button Content="Done" HorizontalAlignment="Left" Margin="413.898,225.005,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Label Content="BlackJack Information" HorizontalAlignment="Left" Margin="88.831,69.865,0,0" VerticalAlignment="Top" Width="291"/>
-        <Label Content="Player Information" HorizontalAlignment="Left" Margin="78.157,138.406,0,0" VerticalAlignment="Top" Width="150"/>
-        <TextBox Name="txtPlayerName" HorizontalAlignment="Left" Height="26" Margin="243.831,142.406,0,0" TextWrapping="Wrap" Text="Player Name" VerticalAlignment="Top" Width="320" TextChanged="TxtPlayerName_TextChanged_1"/>
-        <Label x:Name="lblNumDecks" Content="Number of Decks (Default 2)" HorizontalAlignment="Left" Margin="21.078,203.38,0,187" Width="207.079"/>
-        <TextBox x:Name="txtNumDecks" HorizontalAlignment="Left" Margin="243.831,203.38,0,197.112" TextWrapping="Wrap" Text="2" Width="85" TextChanged="TxtPlayerName_TextChanged_1"/>
+        Title="StartupInfoWindow" Height="427.073" Width="680.5">
+    <Grid Margin="0,10,2,3.843" Background="#FF969E4F">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="391*"/>
+            <ColumnDefinition Width="280*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Done" HorizontalAlignment="Left" Margin="162.714,310.73,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" FontSize="26.667" Grid.Column="1"/>
+        <Label Content="BlackJack Game Setup" HorizontalAlignment="Left" Margin="13.983,57.698,0,0" VerticalAlignment="Top" Width="376.726" FontSize="29.333" FontWeight="Bold" FontStyle="Italic"/>
+        <Label Content="Player Information" Margin="13.983,119.159,126.08,0" VerticalAlignment="Top" FontSize="26.667" FontWeight="Bold" FontStyle="Italic"/>
+        <TextBox Name="txtPlayerName" HorizontalAlignment="Left" Margin="-79.737,111.715,0,0" TextWrapping="Wrap" Text="Player Name" Width="320" TextChanged="TxtPlayerName_TextChanged_1" FontSize="26.667" Height="52.914" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label x:Name="lblNumDecks" Content="Number of Decks (Default 2)" Margin="13.983,199.38,0,129.022" FontSize="26.667" FontStyle="Italic" FontWeight="Bold"/>
+        <TextBox x:Name="txtNumDecks" Margin="114.835,199.38,42.077,129.022" TextWrapping="Wrap" Text="2" TextChanged="TxtPlayerName_TextChanged_1" FontSize="26.667" Grid.Column="1"/>
 
-        <ItemsControl x:Name="icPlayerImageItems" Margin="311,498,318,216">
+        <ItemsControl x:Name="icPlayerImageItems" Margin="0,498,38.237,-105.77" HorizontalAlignment="Right" Width="41.5">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal" />

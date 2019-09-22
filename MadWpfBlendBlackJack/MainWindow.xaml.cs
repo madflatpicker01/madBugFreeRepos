@@ -93,6 +93,7 @@ namespace MadWpfBlendBlackJack
             txtFinalResults.Text = theGame.CompleteHand();
             MessageBox.Show(txtFinalResults.Text, "HAND COMPLETED", MessageBoxButton.OK, MessageBoxImage.Information);
             txtFinalResults.Visibility = Visibility.Visible;
+            txtDealerScore.Visibility = Visibility.Visible;
         }
 
         //         // allow player to update the bet
