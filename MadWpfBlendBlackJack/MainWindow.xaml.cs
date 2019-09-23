@@ -35,6 +35,7 @@ namespace MadWpfBlendBlackJack
             txtPlayerCards.Visibility = Visibility.Hidden;           
             txtDealerCards.Visibility = Visibility.Hidden;         
             txtDealerScore.Visibility = Visibility.Hidden;
+            txtPlayerScore.Visibility = Visibility.Hidden;
         }
 
 
@@ -129,12 +130,12 @@ namespace MadWpfBlendBlackJack
             txtDealerCards.Visibility = Visibility.Hidden;
             txtDealerCards.Text = theGame.DisplayCardsToUser(theGame.dealerHand);
 
+            txtPlayerScore.Visibility = Visibility.Visible;
             txtPlayerScore.Text = theGame.DisplayScoresToUser(theGame.playersHand);
             txtDealerScore.Visibility = Visibility.Hidden;
             txtDealerScore.Text = theGame.DisplayScoresToUser(theGame.dealerHand);
 
             icPlayerImageItems.ItemsSource = theGame.BuildListOfImagesForItemsControl(theGame.playersHand, false);
-          
             icDealerImageItems.ItemsSource = theGame.BuildListOfImagesForItemsControl(theGame.dealerHand, true  );
            
             txtFinalResults.Visibility = Visibility.Hidden;

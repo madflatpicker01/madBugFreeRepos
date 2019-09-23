@@ -34,7 +34,7 @@ namespace MadWpfBlendBlackJack.Views
         {
             // update the name
             _theGame.thePlayer.name = txtPlayerName.Text;
-            ((MainWindow)Application.Current.MainWindow).txtPlayerCards.Text = txtPlayerName.Text;
+            //((MainWindow)Application.Current.MainWindow).txtPlayerCards.Text = txtPlayerName.Text;
         }
         
         // when done
@@ -44,6 +44,7 @@ namespace MadWpfBlendBlackJack.Views
             _theGame.startupCompleted = true;
             _theGame.theDealer.name = "the Amazing Dealerino";
             _theGame.theNumDecks = Convert.ToInt32(txtNumDecks.Text);
+            _theGame.thePlayer.name = txtPlayerName.Text;
 
             ((MainWindow)Application.Current.MainWindow).txtDealerScore.Visibility = Visibility.Hidden;
             ((MainWindow)Application.Current.MainWindow).txtPlayerName.Visibility = Visibility.Visible;
