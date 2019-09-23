@@ -59,9 +59,8 @@ namespace MadWpfBlendBlackJack
                 MessageBox.Show("NEW GAME may not be started when a game is in progress. ", "NEW GAME NOT ALLOWED", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
-
-            // get startup info using dialog 
-            theGame.GetStartupInfo();
+            StartupInfoWindow startupInfo = new StartupInfoWindow(theGame);
+            startupInfo.Show();
         }
 
         private void TxtPlayerCards_TextChanged(object sender, TextChangedEventArgs e)
@@ -95,6 +94,7 @@ namespace MadWpfBlendBlackJack
             MessageBox.Show(txtFinalResults.Text, "HAND COMPLETED", MessageBoxButton.OK, MessageBoxImage.Information);
             txtFinalResults.Visibility = Visibility.Visible;
             txtDealerScore.Visibility = Visibility.Visible;
+            lblPlayersBankRemaining.Content = "Bank: $" + theGame.thePlayer.bank;
         }
 
         //         // allow player to update the bet
@@ -144,7 +144,9 @@ namespace MadWpfBlendBlackJack
             {
                 txtFinalResults.Visibility = Visibility.Visible;
                 MessageBox.Show(txtFinalResults.Text, "HAND COMPLETED", MessageBoxButton.OK, MessageBoxImage.Information);
+      
             }
+            lblPlayersBankRemaining.Content = "Bank: $" + theGame.thePlayer.bank;
         }
 
         private void BtnHit_Click_1(object sender, RoutedEventArgs e)
@@ -183,6 +185,7 @@ namespace MadWpfBlendBlackJack
                 txtFinalResults.Visibility = Visibility.Visible;
                 MessageBox.Show(txtFinalResults.Text, "HAND COMPLETED", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            lblPlayersBankRemaining.Content = "Bank: $" + theGame.thePlayer.bank;
 
         }
 

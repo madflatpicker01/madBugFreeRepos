@@ -55,9 +55,6 @@ namespace MadWpfBlendBlackJack.Controllers
     /// </summary>
         public void GetStartupInfo()
         {
-            StartupInfoWindow startupInfo = new StartupInfoWindow( this );
-            startupInfo.Show();
-
             currentShoe = new Shoe(theNumDecks);
             thePlayer.startingBank = 1000;
             thePlayer.bank = thePlayer.startingBank;
@@ -110,6 +107,7 @@ namespace MadWpfBlendBlackJack.Controllers
         public void GetNextCard( ref List<Card> theHand )
         {
             theHand.Add( currentShoe.GetNext());
+            ((MainWindow)Application.Current.MainWindow).lblNumCardsRemainingInShoe.Content = "Cards In Shoe: " + currentShoe.CardsLeft.ToString();
         }
 
         /// <summary>
@@ -141,6 +139,8 @@ namespace MadWpfBlendBlackJack.Controllers
             ((MainWindow)Application.Current.MainWindow).icDealerImageItems.ItemsSource = BuildListOfImagesForItemsControl(dealerHand, false);
             ((MainWindow)Application.Current.MainWindow).txtDealerScore.Text = DisplayScoresToUser(dealerHand);
             ((MainWindow)Application.Current.MainWindow).txtDealerScore.Visibility = Visibility.Visible;
+
+            ((MainWindow)Application.Current.MainWindow).lblPlayersBankRemaining.Content = "Bank: $" + thePlayer.bank;
 
             handCompleted = true;
             dealAllowed = true; 

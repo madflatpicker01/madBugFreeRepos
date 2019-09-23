@@ -45,10 +45,21 @@ namespace MadWpfBlendBlackJack.Views
             _theGame.theDealer.name = "the Amazing Dealerino";
             _theGame.theNumDecks = Convert.ToInt32(txtNumDecks.Text);
             _theGame.thePlayer.name = txtPlayerName.Text;
-
+ 
             ((MainWindow)Application.Current.MainWindow).txtDealerScore.Visibility = Visibility.Hidden;
-            ((MainWindow)Application.Current.MainWindow).txtPlayerName.Visibility = Visibility.Visible;
-            ((MainWindow)Application.Current.MainWindow).txtDealerName.Visibility = Visibility.Visible;
+            ((MainWindow)Application.Current.MainWindow).lblPlayerName.Visibility = Visibility.Visible;
+            ((MainWindow)Application.Current.MainWindow).lblDealerNameVal.Visibility = Visibility.Visible;
+            ((MainWindow)Application.Current.MainWindow).lblNumDecksInShoe.Visibility = Visibility.Visible;
+            
+            // get startup info  
+            _theGame.GetStartupInfo();
+
+            ((MainWindow)Application.Current.MainWindow).lblNumDecksInShoe.Content = "Decks In Shoe: " + _theGame.theNumDecks.ToString();
+            ((MainWindow)Application.Current.MainWindow).lblNumCardsRemainingInShoe.Content = "Cards Left: ";
+            ((MainWindow)Application.Current.MainWindow).lblNumCardsRemainingInShoe.Visibility = Visibility.Visible;
+
+            ((MainWindow)Application.Current.MainWindow).lblPlayersBankRemaining.Content = "Bank: $" + _theGame.thePlayer.bank;
+            ((MainWindow)Application.Current.MainWindow).lblPlayerBetAmount.Content = "Bet: $" + _theGame.thePlayer.bet;
 
             // exit
             this.Close();
@@ -60,18 +71,13 @@ namespace MadWpfBlendBlackJack.Views
             {
                 _theGame.theDealer.name = "the Amazing Dealerino";
                 _theGame.thePlayer.name = txtPlayerName.Text;
-          
+
                 // check for exception
-                ((MainWindow)Application.Current.MainWindow).txtPlayerName.Text = txtPlayerName.Text;
-                ((MainWindow)Application.Current.MainWindow).txtDealerName.Text = _theGame.theDealer.name;
-                
+                //((MainWindow)Application.Current.MainWindow).txtPlayerName.Text = txtPlayerName.Text;
 
-              //  MessageBox.Show("NewGameText: " + _theGame.thePlayer.name);
+                ((MainWindow)Application.Current.MainWindow).lblPlayerName.Content = _theGame.thePlayer.name;
+                ((MainWindow)Application.Current.MainWindow).lblDealerNameVal.Content = _theGame.theDealer.name;
             }
-       
-       
-            //MessageBox.Show("NewText: " + txtPlayerName.Text);
-
         }
     }
 }
