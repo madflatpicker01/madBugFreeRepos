@@ -51,7 +51,7 @@ namespace BlackJackUtilitiesTests
 
         }
         
-        [TestMethod]
+      
         public void CreateNewDeckWorksAsExpected()
         {
             _currentDeck = new Deck();
@@ -59,8 +59,7 @@ namespace BlackJackUtilitiesTests
             DumpDeckToTrace(_currentDeck.theDeck);
             Assert.IsNotNull(_currentDeck);
         }
-
-        [TestMethod]
+ 
         public void ShuffleDeckWorksAsExpected()
         {
             Deck newDeck = new Deck();
@@ -70,7 +69,7 @@ namespace BlackJackUtilitiesTests
         }
 
 
-        [TestMethod]
+    
         public void ShuffleNewShoeWorksAsExpected()
         {
             _currentShoe = new Shoe(6);
@@ -87,7 +86,7 @@ namespace BlackJackUtilitiesTests
 
         }
 
-        [TestMethod]
+     
         public void GetNextCardWorksAsExpected()
         {
             _currentShoe = new Shoe(2);
